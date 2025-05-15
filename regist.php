@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if ($result) {
         $_SESSION['log'] = "username already used!";
-        header('Location: register.php');
+        header('Location: index.php');
     } else {
         $query = "INSERT INTO tb_account(username, password) VALUES ('$username', '$password')";
         if ($conn->query($query) === TRUE) {

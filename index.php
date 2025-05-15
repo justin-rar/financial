@@ -8,49 +8,113 @@ if (isset($_SESSION["username"])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Login Page</title>
+    <title>Sign in || Sign up from</title>
+     <!-- font awesome icons -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- css stylesheet -->
+    <link rel="stylesheet" href="loginStyle.css">
 </head>
-<style>
-    body {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        background-color: #f5f5f5;
-    }
 
-    .form-login {
-        max-width: 330px;
-        margin: auto;
+<script type="text/javascript">
+    function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirm_password = document.getElementById("confirm_password").value;
+        if (password !== confirm_password) {
+            alert('Password and Confirm Password do not macth');
+            return false;
+        }
+        return true;
     }
-</style>
+</script>
 
 <body>
-    <div class="container-fluid">
-        <form class="form-login" action="login.php" method="post">
-            <div class="AA">
-                <div class="fw-normal mb-3">
-                    <h3 style="text-align: center;">Login First</h3>
-                </div>
-                <div class="form-floating mb-2">
-                    <input type="text" class="form-control" name="username" placeholder="Username" required>
-                    <label>Username</label>
-                </div>
-                <div class="form-floating mb-2">
-                    <input type="password" class="form-control" name="password" placeholder="Password" required>
-                    <label>Password</label>
-                </div>
-                <button class="btn btn-primary w-100" type="submit"> <i class="bi bi-box-arrow-in-right"></i> Submit</button>
-                <p>Doesn't have an account ? <a href="register.php">Register</a></p>
-            </div>
-        </form>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
 
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="regist.php" method="post" onsubmit="return validateForm()">
+                <h1>Create Account</h1>
+                <span>or use your email for registration</span>
+
+                <?php
+                if (isset($_SESSION['log'])) {
+                ?>
+                    <script>
+                        alert('username already exist!');
+                        window.location.href = 'index.php';
+                    </script>
+                <?php 
+                session_unset(); } ?>
+
+                <div class="infield">
+                    <input type="text" placeholder="Name" name="username" />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="password" placeholder="Password" name="password" id="password"/>
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password"/>
+                    <label></label>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+            <form action="login.php" method="post">
+                <h1>Sign in</h1>
+                <span>or use your account</span>
+                <div class="infield">
+                    <input type="text" placeholder="Username" name="username"/>
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="password" placeholder="Password" name="password"/>
+                    <label></label>
+                </div>
+                <a href="#" class="forgot">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container" id="overlayCon">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button>Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us lorem</p>
+                    <button>Sign Up</button>
+                </div>
+            </div>
+            <button id="overlayBtn"></button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- js code -->
+    <script>
+        const container = document.getElementById('container');
+        const overlayCon = document.getElementById('overlayCon');
+        const overlayBtn = document.getElementById('overlayBtn');
+
+        overlayBtn.addEventListener('click', ()=>{
+            container.classList.toggle('right-panel-active');
+        });
+
+        overlayBtn.classList.remove('btnScaled');
+        window.requestAnimationFrame( ()=> {
+            overlayBtn.classList.add('btnScaled');
+        });
+    </script>
+
+</body>
 </html>
