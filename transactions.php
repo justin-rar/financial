@@ -55,17 +55,17 @@ $transactions = $stmt->get_result();
         }
         
         .transactions-container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 16px;
+            border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
         .transactions-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 1px solid #eee;
         }
@@ -73,53 +73,82 @@ $transactions = $stmt->get_result();
         .transactions-header h1 {
             color: var(--primary);
             font-weight: 600;
+            font-size: 1.8rem;
         }
         
-        .transaction-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-left: 4px solid;
+        .transaction-table {
+            width: 100%;
+            border-collapse: collapse;
         }
         
-        .transaction-income {
-            border-color: var(--income);
+        .transaction-table th {
+            background-color: #f8f9fa;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #555;
+            border-bottom: 2px solid #eee;
         }
         
-        .transaction-expense {
-            border-color: var(--expense);
+        .transaction-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        
+        .transaction-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .transaction-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .income-row .amount {
+            color: var(--income);
+            font-weight: 600;
+        }
+        
+        .expense-row .amount {
+            color: var(--expense);
+            font-weight: 600;
         }
         
         .transaction-date {
-            font-size: 14px;
             color: #666;
+            font-size: 0.9rem;
         }
         
-        .transaction-category {
+        .transaction-type {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: 500;
+            text-transform: capitalize;
         }
         
-        .transaction-note {
-            font-size: 14px;
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        .transaction-amount {
-            font-weight: 600;
-            text-align: right;
-        }
-        
-        .income-amount {
+        .type-income {
+            background-color: rgba(76, 175, 80, 0.1);
             color: var(--income);
         }
         
-        .expense-amount {
+        .type-expense {
+            background-color: rgba(244, 67, 54, 0.1);
             color: var(--expense);
+        }
+        
+        .transaction-note {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .no-transactions {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            border-bottom: 1px solid #eee;
         }
         
         .back-btn {
@@ -136,41 +165,66 @@ $transactions = $stmt->get_result();
             transform: translateX(-3px);
         }
         
-        .no-transactions {
-            text-align: center;
-            padding: 30px;
-            color: #666;
+        @media (max-width: 768px) {
+            .transaction-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .transactions-header h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="transactions-container">
         <div class="transactions-header">
-            <h1><i class="bi bi-list-check"></i> Daftar Transaksi</h1>
+            <h1><i class="bi bi-list-ul"></i> Daftar Transaksi</h1>
         </div>
         
         <?php if ($transactions->num_rows > 0): ?>
-            <?php while($transaction = $transactions->fetch_assoc()): ?>
-                <div class="transaction-item transaction-<?= $transaction['type'] ?>">
-                    <div class="transaction-details">
-                        <div class="transaction-date">
-                            <?= date('d M Y', strtotime($transaction['date'])) ?>
-                        </div>
-                        <div class="transaction-category">
-                            <?= htmlspecialchars($transaction['category']) ?>
-                        </div>
-                        <?php if (!empty($transaction['note'])): ?>
-                            <div class="transaction-note">
-                                <?= htmlspecialchars($transaction['note']) ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                    <div class="transaction-amount <?= $transaction['type'] ?>-amount">
-                        <?= $transaction['type'] == 'income' ? '+' : '-' ?>
-                        Rp <?= number_format($transaction['amount'], 0, ',', '.') ?>
-                    </div>
-                </div>
-            <?php endwhile; ?>
+            <table class="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Jenis</th>
+                        <th>Kategori</th>
+                        <th>Catatan</th>
+                        <th>Jumlah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while($transaction = $transactions->fetch_assoc()): ?>
+                        <tr class="<?= $transaction['type'] ?>-row">
+                            <td>
+                                <div class="transaction-date">
+                                    <?= date('d M Y', strtotime($transaction['date'])) ?>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="transaction-type type-<?= $transaction['type'] ?>">
+                                    <?= $transaction['type'] == 'income' ? 'Pemasukan' : 'Pengeluaran' ?>
+                                </span>
+                            </td>
+                            <td><?= htmlspecialchars($transaction['category']) ?></td>
+                            <td>
+                                <?php if (!empty($transaction['note'])): ?>
+                                    <div class="transaction-note">
+                                        <?= htmlspecialchars($transaction['note']) ?>
+                                    </div>
+                                <?php else: ?>
+                                    -
+                                <?php endif; ?>
+                            </td>
+                            <td class="amount">
+                                <?= $transaction['type'] == 'income' ? '+' : '-' ?>
+                                Rp <?= number_format($transaction['amount'], 0, ',', '.') ?>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
         <?php else: ?>
             <div class="no-transactions">
                 <i class="bi bi-wallet2" style="font-size: 2rem; margin-bottom: 10px;"></i>
