@@ -165,16 +165,8 @@ $transactions = $stmt->get_result();
             transform: translateX(-3px);
         }
         
-        @media (max-width: 768px) {
-            .transaction-table {
-                display: block;
-                overflow-x: auto;
-            }
-            
-            .transactions-header h1 {
-                font-size: 1.5rem;
-            }
-        }
+        
+        
     </style>
 </head>
 <body>

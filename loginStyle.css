@@ -7,9 +7,9 @@
 }
 
 :root {
-    --linear-grad: linear-gradient(to right, #1a3e1a, #3d8b3d);
-    --grad-clr1: #1a3e1a;  /* Hijau tua elegan */
-    --grad-clr2: #3d8b3d;  /* Hijau segar */
+    --linear-grad: linear-gradient(to right, #0d4d2e, #27ae60);
+    --grad-clr1: #0d4d2e;  /* Hijau hutan */
+    --grad-clr2: #27ae60;  /* Hijau Bitcoin */
 }
 
 body {
