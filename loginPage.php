@@ -50,15 +50,15 @@ if (isset($_SESSION["username"])) {
                 session_unset(); } ?>
 
                 <div class="infield">
-                    <input type="text" placeholder="Name" name="username" />
+                    <input type="text" placeholder="Name" name="username" required />
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="password" placeholder="Password" name="password" id="password"/>
+                    <input type="password" placeholder="Password" name="password" id="password" required/>
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password"/>
+                    <input type="password" placeholder="Confirm Password" name="confirm_password" id="confirm_password" required/>
                     <label></label>
                 </div>
                 <button type="submit">Sign Up</button>
@@ -70,11 +70,11 @@ if (isset($_SESSION["username"])) {
                 <h1>Sign in</h1>
                 <span>or use your account</span>
                 <div class="infield">
-                    <input type="text" placeholder="Username" name="username"/>
+                    <input type="text" placeholder="Username" name="username" required/>
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="password" placeholder="Password" name="password"/>
+                    <input type="password" placeholder="Password" name="password" required/>
                     <label></label>
                 </div>
                 <a href="#" class="forgot">Forgot your password?</a>
