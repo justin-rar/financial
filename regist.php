@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if ($conn->query($query) === TRUE) {
             echo "<script>
         alert('Account succesfully added. please login');
-        window.location.href = 'index.php';
+        window.location.href = 'loginPage.php';
     </script>";
         }
     }

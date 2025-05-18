@@ -18,7 +18,7 @@ if ($username && password_verify($password, $result['password'])) {
 } else {
     echo "<script>
         alert('Username and Password do not exist or incorrect!');
-        window.location.href = 'index.php';
+        window.location.href = 'loginPage.php';
     </script>";
 }
 ?>
