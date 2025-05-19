@@ -1,5 +1,5 @@
 body {
-    background-color: #f8f9fa;
+    background-color: #E8F5E9;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
     box-sizing: border-box;
@@ -14,6 +14,7 @@ body {
 .header-section .salam {
     text-align: center;
     margin-bottom: 60px;
+    color: #2E8B57;
 }
 
 .card-section {
@@ -29,28 +30,26 @@ body {
     border-radius: 10px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
     border-top: 4px solid transparent;
     height: 100%;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     border-top-color: currentColor;
 }
 
 .card:nth-child(1):hover {
-    border-top-color: #2E7D32;
+    border-top-color: #27ae60;
 }
-
 .card:nth-child(2):hover {
-    border-top-color: #1565C0;
+    border-top-color: #27ae60;
 }
-
 .card:nth-child(3):hover {
-    border-top-color: #FF8F00;
+    border-top-color: #27ae60;
 }
 
 .card {
@@ -69,17 +68,17 @@ body {
 }
 
 .add-btn {
-    background-color: #2E7D32;
+    background-color: #27ae60;
     color: white;
 }
 
 .histo-btn {
-    background-color: #1565C0;
+    background-color: #27ae60;
     color: white;
 }
 
 .stats-btn {
-    background-color: #FF8F00;
+    background-color: #27ae60;
     color: white;
 }
 
@@ -126,13 +125,13 @@ body {
 }
 
 .i-add {
-    color: #2E7D32;
+    color: #27ae60;
 }
 
 .i-his {
-    color: #1565C0;
+    color: #27ae60;
 }
 
 .i-stats {
-    color: #FF8F00;
+    color: #27ae60;
 }
