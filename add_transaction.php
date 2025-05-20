@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             
             <div class="form-group">
-                <label for="note" class="form-label">Catatan (Opsional)</label>
+                <label for="note" cl ass="form-label">Catatan (Opsional)</label>
                 <textarea class="form-jawab" id="note" name="note" rows="3" placeholder="Informasi Tambahan"></textarea>
             </div>
             
