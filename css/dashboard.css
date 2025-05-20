@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --gelap: #0d4d2e;  /* Hijau hutan */
+    --terang: #27ae60;  /* Hijau Bitcoin */
+}
+
+body {
+    /* display: flex; */
+    background-color: #E8F5E9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    box-sizing: border-box;
+    /* align-items: center; */
+}
+
+.row {
+    padding: 5rem;
+}
+
+.navbar {
+    background-color: var(--terang);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 2px solid var(--gelap);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-radius: 0 0 20px 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.home-link {
+    margin-right: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+/* Khusus untuk Beranda */
+.home {
+    background-color: var(--gelap);
+    color: white;
+}
+.home:hover {
+    background-color: #1e8449;
+    transform: translateY(-2px);
+}
+
+/* Khusus untuk Logout */
+.logout {
+    background-color: #c82333;
+    color: white;
+}
+.logout:hover {
+    background-color: #a71d2a;
+    transform: translateY(-2px);
+}
+
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e0f5e5	;
+    border-radius: 20px;
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-section .salam {
+    padding: 1rem;
+    /* background-color: aquamarine; */
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2E8B57;
+    border-bottom: 2px solid #2E8B57;
+
+}
+
+
+
+.summary-card {
+    background-color: white;
+    padding: 1.6rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 4px solid transparent;
+    transition: all 0.3s ease;
+    width: 310px; /* Samakan dengan card utama jika ada */
+}
+
+.summary-card h4 {
+    color: #2E8B57;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.summary-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.summary-card.income {
+    border: 3px solid #008fee;
+}
+
+.summary-card.expense {
+    border: 3px solid #e74c3c;
+}
+
+.summary-card.balance {
+    border: 3px solid #f1c40f;
+}
+
+
+
+.card-section {
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.card-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    margin-bottom: 2rem;
+}
+
+.card {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    border: 4px solid transparent;
+}
+
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: #2E8B57;
+}
+
+.card:nth-child(1):hover {
+    border-color: #27ae60;
+}
+.card:nth-child(2):hover {
+    border-color: #27ae60;
+}
+.card:nth-child(3):hover {
+    border-color: #27ae60;
+}
+
+.card {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.btn-card {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.add-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.histo-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.stats-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.btn-card:hover {
+    opacity: 0.9;
+    color: white;
+    transform: translateX(5px);
+}
+
+.quotes {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: #fefae0;
+    border-top: 3px solid var(--terang);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #333;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.quotes blockquote {
+    text-align: center;
+}
+
+.icon {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.icon i {
+    font-size: 40px;
+    color: inherit;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    color: #27ae60;
+}
+

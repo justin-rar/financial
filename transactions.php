@@ -77,33 +77,9 @@ $transactions = $stmt->get_result();
             font-size: 1.8rem;
         }
 
-        .transaction-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .transaction-table th {
-            background-color: #f8f9fa;
-            padding: 12px 15px;
-            text-align: left;
-            font-weight: 600;
-            color: #555;
-            border-bottom: 2px solid #eee;
-        }
-
         .transaction-table td {
             padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-            vertical-align: top;
-        }
-
-        .transaction-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .transaction-table tr:hover {
-            background-color: #f9f9f9;
-        }
+        } 
 
         .income-row .amount {
             color: var(--income);
@@ -113,11 +89,6 @@ $transactions = $stmt->get_result();
         .expense-row .amount {
             color: var(--expense);
             font-weight: 600;
-        }
-
-        .transaction-date {
-            color: #666;
-            font-size: 0.9rem;
         }
 
         .transaction-type {
@@ -145,25 +116,31 @@ $transactions = $stmt->get_result();
             margin-top: 5px;
         }
 
-        .no-transactions {
+        .transaction-date {
+            color: #777;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+
+        .btn-back {
+            margin-top: 30px;
             text-align: center;
-            padding: 40px;
-            color: #666;
-            border-bottom: 1px solid #eee;
         }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            color: #1565C0;
-            text-decoration: none;
-            margin-top: 20px;
-            transition: all 0.3s;
+        
+        .kembali {
+            font-size: 0.9rem;
+            border-radius: 10px;
+            padding: 8px;
+            background-color: #F44336;
+           text-align: center;
+           color: white;
+           text-decoration: none;
+           transition: background 0.3s;
         }
-
-        .back-btn:hover {
-            color: #0D47A1;
-            transform: translateX(-3px);
+        
+        .kembali:hover{
+            background-color: #962a22;
         }
     </style>
 </head>
@@ -173,9 +150,7 @@ $transactions = $stmt->get_result();
         <div class="transactions-header">
             <h1><i class="bi bi-list-ul"></i> Daftar Transaksi</h1>
         </div>
-
-        <?php if ($transactions->num_rows > 0): ?>
-            <table class="transaction-table">
+            <table class="transaction-table table table-striped">
                 <thead>
                     <tr>
                         <th>Tanggal</th>
@@ -222,16 +197,12 @@ $transactions = $stmt->get_result();
                     <?php endwhile; ?>
                 </tbody>
             </table>
-        <?php else: ?>
-            <div class="no-transactions">
-                <i class="bi bi-wallet2" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                <p>Belum ada transaksi yang tercatat</p>
-            </div>
-        <?php endif; ?>
 
-        <a href="dashboard.php" class="back-btn">
-            <i class="bi bi-arrow-left"></i> Kembali ke Dashboard
-        </a>
+        <div class="btn-back">
+                <a href="dashboard.php" class="kembali">
+                     Kembali
+                </a>
+            </div>
     </div>
 </body>
 
