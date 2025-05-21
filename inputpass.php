@@ -22,7 +22,7 @@ if (isset($_SESSION["username"])) {
 
     <div class="container" id="container">
         <div class="form-container">
-            <form action="sent_resetpass.php" method="post">
+            <form action="verify_resetpass.php" method="post">
                 <h1>Forgot Password</h1>
                 <p>Enter your email to reset your password</p>
 
@@ -33,12 +33,13 @@ if (isset($_SESSION["username"])) {
                 }
                 ?>
 
+
                 <div class="infield">
-                    <input type="email" name="email" placeholder="Email" required />
+                    <input type="text" name="code" placeholder="masukan kode" required />
                     <label></label>
                 </div>
 
-                <button type="submit">Send Reset Link</button>
+                <button type="submit">Send</button>
                 <p style="margin-top: 15px;"><a href="loginPage.php">Back to Login</a></p>
             </form>
         </div>
