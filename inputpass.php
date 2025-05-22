@@ -23,8 +23,8 @@ if (isset($_SESSION["username"])) {
     <div class="container" id="container">
         <div class="form-container">
             <form action="verify_resetpass.php" method="post">
-                <h1>Forgot Password</h1>
-                <p>Enter your email to reset your password</p>
+                <h1>Kode Reset</h1>
+                <p>masukan kode reset yang telah dikirim dari email kamu</p>
 
                 <?php
                 if (isset($_SESSION['status'])) {
