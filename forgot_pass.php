@@ -16,11 +16,30 @@ if (isset($_SESSION["username"])) {
     <title>Forgot Password</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/loginStyle.css">
+    <style>
+        /* Add this to your existing loginStyle.css */
+
+.container.forgot-password {
+    height: auto;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forgot-password form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+    </style>
 </head>
 
 <body>
-
-    <div class="container" id="container">
+    <div class="container forgot-password" id="container">
         <div class="form-container">
             <form action="sent_resetpass.php" method="post">
                 <h1>Forgot Password</h1>
@@ -43,7 +62,6 @@ if (isset($_SESSION["username"])) {
             </form>
         </div>
     </div>
-
 </body>
 
 </html>
