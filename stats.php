@@ -3,13 +3,12 @@ session_start();
 include "connect.php";
 
 if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
+    header('location: loginPage.php');
     exit();
 }
 
 $username = $_SESSION['username'];
 
-// Get account_id from username
 $sql = "SELECT account_id FROM tb_account WHERE username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $username);
@@ -24,7 +23,6 @@ if (!$user) {
 
 $user_id = $user['account_id'];
 
-// Get total income and expense
 $sql_income = "SELECT SUM(amount) AS total FROM transactions WHERE user_id = ? AND type = 'income'";
 $stmt = $conn->prepare($sql_income);
 $stmt->bind_param("i", $user_id);
@@ -150,19 +148,12 @@ $balance = $total_income - $total_expense;
             transform: translateX(-3px);
         }
         
-        .note {
-            font-size: 12px;
-            color: #666;
-            margin-top: 20px;
-            padding-top: 10px;
-            border-top: 1px solid #eee;
-        }
     </style>
 </head>
 <body>
     <div class="stats-container">
         <div class="stats-header">
-            <h1><i class="bi bi-pie-chart"></i> Statistik Keuangan</h1>
+            <h1>Statistik Keuangan</h1>
         </div>
         
         <div class="summary-card income-card">
@@ -184,9 +175,6 @@ $balance = $total_income - $total_expense;
             <canvas id="financeChart"></canvas>
         </div>
         
-        <div class="note">
-            <i class="bi bi-info-circle"></i> Perbandingan pemasukan dan pengeluaran
-        </div>
         
         <a href="dashboard.php" class="back-btn">
             <i class="bi bi-arrow-left"></i> Kembali ke Dashboard

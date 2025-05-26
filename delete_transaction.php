@@ -3,7 +3,7 @@ session_start();
 include "connect.php";
 
 if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
+    header('location: loginPage.php');
     exit();
 }
 
@@ -24,7 +24,6 @@ if (!$user) {
 
 $user_id = $user['account_id'];
 
-// Periksa apakah ID transaksi dikirim
 if (!isset($_GET['id'])) {
     echo "<div class='alert alert-danger'>ID transaksi tidak ditemukan.</div>";
     exit();
@@ -32,7 +31,6 @@ if (!isset($_GET['id'])) {
 
 $transaction_id = $_GET['id'];
 
-// Pastikan transaksi milik user yang sedang login
 $sql = "DELETE FROM transactions WHERE id = ? AND user_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ii", $transaction_id, $user_id);

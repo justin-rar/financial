@@ -3,13 +3,12 @@ session_start();
 include "connect.php";
 
 if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
+    header('location: loginPage.php');
     exit();
 }
-
 $username = $_SESSION['username'];
 
-// Get account_id from username
+// Mengambil id akun dari username
 $sql = "SELECT account_id FROM tb_account WHERE username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $username);
@@ -24,7 +23,7 @@ if (!$user) {
 
 $user_id = $user['account_id'];
 
-// Get transactions
+// Mengambil transaksi
 $sql = "SELECT * FROM transactions WHERE user_id = ? ORDER BY date DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);

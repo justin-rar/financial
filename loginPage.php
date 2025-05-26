@@ -13,9 +13,7 @@ if (isset($_SESSION["username"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in || Sign up from</title>
-     <!-- font awesome icons -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- css stylesheet -->
     <link rel="stylesheet" href="css/loginStyle.css">
 </head>
 
@@ -24,8 +22,8 @@ if (isset($_SESSION["username"])) {
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="regist.php" method="post" >
-                <h1>Create Account</h1>
-                <span>or use your email for registration</span>
+                <h1>Register</h1>
+                <span>Buat akunmu untuk memulai</span>
 
                 <?php
                 if (isset($_SESSION['log'])) {
@@ -42,11 +40,11 @@ if (isset($_SESSION["username"])) {
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="password" placeholder="Password" name="password" id="password" required/>
+                    <input type="email" placeholder="Email" name="email" id="email" required/>
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="email" placeholder="Email" name="email" id="email" required/>
+                    <input type="password" placeholder="Password" name="password" id="password" required/>
                     <label></label>
                 </div>
                 <button type="submit">Sign Up</button>
@@ -56,7 +54,7 @@ if (isset($_SESSION["username"])) {
         <div class="form-container sign-in-container">
             <form action="login.php" method="post">
                 <h1>Sign in</h1>
-                <span>or use your account</span>
+                <span>Gunakan akunmu untuk masuk</span>
                 <?php
                 if (isset($_SESSION['status'])) {
                 ?>
@@ -74,7 +72,7 @@ if (isset($_SESSION["username"])) {
                     <input type="password" placeholder="Password" name="password" required/>
                     <label></label>
                 </div>
-                <a href="forgot_pass.php" class="forgot">Forgot your password?</a>
+                <a href="forgot_pass.php" class="forgot">Lupa password?</a>
                 <button type="submit">Sign In</button>
             </form>
         </div>
@@ -82,12 +80,12 @@ if (isset($_SESSION["username"])) {
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
                     <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
+                    <p>Terus terhubung dengan kami melalui login aplikasi</p>
                     <button>Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us lorem</p>
+                    <h1>Hello, Bebeters!</h1>
+                    <p>Masukkan info personalmu untuk bergabung dengan kami</p>
                     <button>Sign Up</button>
                 </div>
             </div>
