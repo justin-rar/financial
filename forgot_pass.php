@@ -42,8 +42,8 @@ if (isset($_SESSION["username"])) {
     <div class="container forgot-password" id="container">
         <div class="form-container">
             <form action="sent_resetpass.php" method="post">
-                <h1>Forgot Password</h1>
-                <p>Enter your email to reset your password</p>
+                <h1>Lupa Password</h1>
+                <p>Masukkan emailmu untuk mengatur ulang password</p>
 
                 <?php
                 if (isset($_SESSION['status'])) {
@@ -57,8 +57,8 @@ if (isset($_SESSION["username"])) {
                     <label></label>
                 </div>
 
-                <button type="submit">Send Reset Link</button>
-                <p style="margin-top: 15px;"><a href="loginPage.php">Back to Login</a></p>
+                <button type="submit">Kirim Link Reset</button>
+                <p style="margin-top: 15px;"><a href="loginPage.php">Kembali ke Login</a></p>
             </form>
         </div>
     </div>

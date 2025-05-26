@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $email = $_POST['email'];
 
-    // Cek apakah username sudah ada
     $check_username = "SELECT * FROM tb_account WHERE username = '$username'";
     $check_email = "SELECT * FROM tb_account WHERE email = '$email'";
 

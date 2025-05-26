@@ -1,9 +1,9 @@
 <?php
 session_start();
 include "connect.php";
-if (!isset($_SESSION["username"])) { 
-    header("Location: login.php"); 
-    exit(); 
+if (!isset($_SESSION['username'])) {
+    header('location: loginPage.php');
+    exit();
 }
 
 $username = $_SESSION['username'];
@@ -64,7 +64,7 @@ $balance = $total_income - $total_expense;
 <div class="row">
     <div class="dashboard-container">
         <div class="header-section">
-            <h2 class="salam">Halo, <?= htmlspecialchars($_SESSION['username']) ?> welcome to Bebet</h2>
+            <h2 class="salam">Halo, <?= htmlspecialchars($_SESSION['username']) ?> Selamat Datang di Bebet!</h2>
         </div>
 
        <div class="card-section summary-section">
@@ -96,7 +96,7 @@ $balance = $total_income - $total_expense;
                     <i class="fa-solid fa-plus"></i>
                 </div>
                 <h3>Tambah Transaksi</h3>
-                <p>Record new income or expense transactions</p>
+                <p>Catat transaksi pengeluaran atau pemasukan baru</p>
                 <a href="add_transaction.php" class="btn-card add-btn">Tambah</a>
                 </div>
             </div>
@@ -106,7 +106,7 @@ $balance = $total_income - $total_expense;
                         <i class="fa-solid fa-wallet"></i>
                     </div>
                     <h3>Lihat Transaksi</h3>
-                    <p>Record new income or expense transactions</p>
+                    <p>Lihat sejarah transaksi</p>
                     <a href="transactions.php" class="btn-card histo-btn">Cek</a>
                 </div>
             </div>
@@ -116,7 +116,7 @@ $balance = $total_income - $total_expense;
                     <i class="fa-solid fa-chart-bar"></i>
                 </div>
                 <h3>Lihat Statistik</h3>
-                <p>Record new income or expense transactions</p>
+                <p>Lihat informasi transaksi melalui grafik</p>
                 <a href="stats.php" class="btn-card stats-btn">Lihat</a>
                 </div>
                 

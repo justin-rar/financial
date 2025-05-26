@@ -16,7 +16,6 @@ if (isset($_SESSION["username"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="css/loginStyle.css">
     <style>
-        /* Additional styling to match loginStyle.css */
         .container.reset-password {
             height: auto;
             min-height: 500px;
@@ -56,7 +55,7 @@ if (isset($_SESSION["username"])) {
                     <label></label>
                 </div>
                 <button type="submit">Kirim</button>
-                <p style="margin-top: 15px;"><a href="loginPage.php">Back to Login</a></p>
+                <p style="margin-top: 15px;"><a href="loginPage.php">Kembali ke Login</a></p>
             </form>
         </div>
     </div>
