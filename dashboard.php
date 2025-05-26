@@ -1,14 +1,13 @@
 <?php
 session_start();
 include "connect.php";
-if (!isset($_SESSION['username'])) {
-    header('location: loginPage.php');
-    exit();
+if (!isset($_SESSION["username"])) { 
+    header("Location: login.php"); 
+    exit(); 
 }
 
 $username = $_SESSION['username'];
 
-// Get account_id from username
 $sql = "SELECT account_id FROM tb_account WHERE username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $username);
@@ -23,7 +22,7 @@ if (!$user) {
 
 $user_id = $user['account_id'];
 
-// Get total income and expense
+// Ambil totla income dan pengeluarannya
 $sql_income = "SELECT SUM(amount) AS total FROM transactions WHERE user_id = ? AND type = 'income'";
 $stmt = $conn->prepare($sql_income);
 $stmt->bind_param("i", $user_id);
@@ -64,7 +63,7 @@ $balance = $total_income - $total_expense;
 <div class="row">
     <div class="dashboard-container">
         <div class="header-section">
-            <h2 class="salam">Halo, <?= htmlspecialchars($_SESSION['username']) ?> Selamat Datang di Bebet!</h2>
+            <h2 class="salam">Halo, <?= htmlspecialchars($_SESSION['username']) ?> selamat datang di Bebet!</h2>
         </div>
 
        <div class="card-section summary-section">
@@ -96,7 +95,8 @@ $balance = $total_income - $total_expense;
                     <i class="fa-solid fa-plus"></i>
                 </div>
                 <h3>Tambah Transaksi</h3>
-                <p>Catat transaksi pengeluaran atau pemasukan baru</p>
+                <p>Catat pemasukan atau pengeluaran harian <br>secara praktis.</p>
+
                 <a href="add_transaction.php" class="btn-card add-btn">Tambah</a>
                 </div>
             </div>
@@ -106,7 +106,7 @@ $balance = $total_income - $total_expense;
                         <i class="fa-solid fa-wallet"></i>
                     </div>
                     <h3>Lihat Transaksi</h3>
-                    <p>Lihat sejarah transaksi</p>
+                    <p>Lihat riwayat lengkap semua transaksi <br>keuangan Anda.</p>
                     <a href="transactions.php" class="btn-card histo-btn">Cek</a>
                 </div>
             </div>
@@ -116,7 +116,7 @@ $balance = $total_income - $total_expense;
                     <i class="fa-solid fa-chart-bar"></i>
                 </div>
                 <h3>Lihat Statistik</h3>
-                <p>Lihat informasi transaksi melalui grafik</p>
+                <p>Tinjau grafik keuangan untuk evaluasi <br>pengeluaran dan tabungan.</p>
                 <a href="stats.php" class="btn-card stats-btn">Lihat</a>
                 </div>
                 

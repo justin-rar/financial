@@ -59,7 +59,6 @@ $balance = $total_income - $total_expense;
         
         body {
             background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding: 20px;
         }
         
@@ -90,7 +89,7 @@ $balance = $total_income - $total_expense;
             padding: 15px;
             margin-bottom: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border-left: 4px solid;
+            border-bottom: 4px solid;
         }
         
         .income-card {
@@ -148,6 +147,26 @@ $balance = $total_income - $total_expense;
             transform: translateX(-3px);
         }
         
+        .btn-back {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .kembali {
+            font-size: 0.9rem;
+            border-radius: 10px;
+            padding: 8px;
+            background-color: #F44336;
+           text-align: center;
+           color: white;
+           text-decoration: none;
+           transition: background 0.3s;
+        }
+        
+        .kembali:hover{
+            background-color: #962a22;
+        }
+
     </style>
 </head>
 <body>
@@ -175,10 +194,11 @@ $balance = $total_income - $total_expense;
             <canvas id="financeChart"></canvas>
         </div>
         
-        
-        <a href="dashboard.php" class="back-btn">
-            <i class="bi bi-arrow-left"></i> Kembali ke Dashboard
-        </a>
+        <div class="btn-back">
+                <a href="dashboard.php" class="kembali">
+                     Kembali
+                </a>
+            </div>
     </div>
 
     <script>
