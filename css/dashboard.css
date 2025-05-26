@@ -4,8 +4,8 @@
 }
 
 :root {
-    --gelap: #0d4d2e;  /* Hijau hutan */
-    --terang: #27ae60;  /* Hijau Bitcoin */
+    --gelap: #0d4d2e;  
+    --terang: #27ae60;  
 }
 
 body {
@@ -54,7 +54,6 @@ body {
 }
 
 
-/* Khusus untuk Beranda */
 .home {
     background-color: var(--gelap);
     color: white;
@@ -64,7 +63,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Khusus untuk Logout */
 .logout {
     background-color: #c82333;
     color: white;
@@ -103,7 +101,7 @@ box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 4px solid transparent;
     transition: all 0.3s ease;
-    width: 310px; /* Samakan dengan card utama jika ada */
+    width: 280px; 
 }
 
 .summary-card h4 {

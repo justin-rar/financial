@@ -1,9 +1,9 @@
 <?php
 session_start();
 include "connect.php";
-if (!isset($_SESSION["username"])) { 
-    header("Location: login.php"); 
-    exit(); 
+if (!isset($_SESSION['username'])) {
+    header('location: loginPage.php');
+    exit();
 }
 
 $username = $_SESSION['username'];
@@ -16,7 +16,7 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 if (!$user) {
-    echo "<div class='alert alert-danger'>User not found!</div>";
+    echo "<div class='alert alert-danger'>User not found!</div>"; 
     exit();
 }
 

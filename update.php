@@ -24,7 +24,6 @@ if (!$user) {
 
 $user_id = $user['account_id'];
 
-// Periksa apakah request-nya POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Ambil data dari form
     $transaction_id = $_POST['id'];
@@ -34,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $amount = $_POST['amount'];
     $note = $_POST['note'];
 
-    // Periksa apakah transaksi milik user
     $check = $conn->prepare("SELECT * FROM transactions WHERE id = ? AND user_id = ?");
     $check->bind_param("ii", $transaction_id, $user_id);
     $check->execute();
@@ -45,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Lakukan update
+    // update data
     $sql = "UPDATE transactions SET date = ?, type = ?, category = ?, amount = ?, note = ? WHERE id = ? AND user_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssdsii", $date, $type, $category, $amount, $note, $transaction_id, $user_id);

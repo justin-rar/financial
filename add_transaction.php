@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 
 $username = $_SESSION['username'];
 
-// Get account_id from username
+// Ambil akun dari id username
 $sql = "SELECT account_id FROM tb_account WHERE username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $username);

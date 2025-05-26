@@ -149,7 +149,7 @@ $transactions = $stmt->get_result();
         <div class="transactions-header">
             <h1><i class="bi bi-list-ul"></i> Daftar Transaksi</h1>
         </div>
-            <table class="transaction-table table table-striped">
+            <table class="transaction-table table">
                 <thead>
                     <tr>
                         <th>Tanggal</th>
@@ -188,9 +188,15 @@ $transactions = $stmt->get_result();
                                 Rp <?= number_format($transaction['amount'], 0, ',', '.') ?>
                             </td>
                             <td>
-                                <a href="edit_transaction.php?id=<?= $transaction['id'] ?>">Edit</a>
-                                <a href="delete_transaction.php?id=<?= $transaction['id'] ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
-                            </td>
+  <div class="d-flex w-75">
+    <a href="edit_transaction.php?id=<?= $transaction['id'] ?>" class="btn btn-sm btn-primary w-50 me-2">
+      <i class="fas fa-edit"></i> Edit
+    </a>
+    <a href="delete_transaction.php?id=<?= $transaction['id'] ?>" class="btn btn-sm btn-danger w-50" onclick="return confirm('Yakin ingin menghapus?')">
+      <i class="fas fa-trash-alt"></i> Hapus
+    </a>
+  </div>
+</td>
 
                         </tr>
                     <?php endwhile; ?>

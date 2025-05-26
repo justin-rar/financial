@@ -31,7 +31,6 @@
             font-weight: 600;
         }
         
-        /* Type Selector Styles */
         .type-selector {
             display: flex;
             margin-bottom: 20px;
@@ -60,7 +59,6 @@
             background-color: #f9f9f9;
         }
         
-        /* Hover   Effects */
         .type-option.income label:hover {
             background-color: var(--income);
             color: white;
@@ -71,7 +69,6 @@
             color: white;
         }
         
-        /* Selected State */
         .type-option input[type="radio"]:checked + label {
             color: white;
         }

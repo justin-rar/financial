@@ -8,8 +8,8 @@
 
 :root {
     --linear-grad: linear-gradient(to right, #0d4d2e, #27ae60);
-    --grad-clr1: #0d4d2e;  /* Hijau hutan */
-    --grad-clr2: #27ae60;  /* Hijau Bitcoin */
+    --grad-clr1: #0d4d2e;  
+    --grad-clr2: #27ae60;  
 }
 
 body {
