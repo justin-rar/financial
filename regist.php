@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $email_template = "
         <h2>Anda telah melakukan pendaftaran akun bebet</h2>
         <h4>Verifikasi emailmu agar dapat login, klik tautan berikut!</h4>
-        <a href='http://localhost/financial/verify_email.php?token=$verify_token'>[klik di sini]</a>
+        <a href='http://localhost/LOGIN/verify_email.php?token=$verify_token'>[klik di sini]</a>
         ";
 
         $query = "INSERT INTO tb_account(username, password, email, verify_token, verify_status, reset_pascode)
