@@ -17,7 +17,7 @@ if (isset($_SESSION["username"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/loginStyle.css">
     <style>
-        /* Add this to your existing loginStyle.css */
+       
 
 .container.forgot-password {
     height: auto;
